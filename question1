@@ -1,0 +1,52 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class PatientBill {
+private:
+    string patientName;
+    double totalBillAmount;
+    double amountPaid;
+    double outstandingAmount;
+
+public:
+    PatientBill(string name, double totalAmount, double paidAmount) {
+        patientName = name;
+        totalBillAmount = totalAmount;
+        amountPaid = paidAmount;
+        calculateOutstandingAmount();
+    }
+    void calculateOutstandingAmount() {
+        outstandingAmount = totalBillAmount - amountPaid;
+    }
+
+    
+    void displayBillStatus() {
+        cout << "Patient Name: " << patientName << endl;
+        cout << "Total Bill Amount: ₹" << totalBillAmount << endl;
+        cout << "Amount Paid: ₹" << amountPaid << endl;
+
+        if (outstandingAmount == 0) {
+            cout << "Bill Status: Fully Paid" << endl;
+        } else if (outstandingAmount > 0 && outstandingAmount < totalBillAmount) {
+            cout << "Bill Status: Outstanding" << endl;
+            cout << "Outstanding Amount: ₹" << outstandingAmount << endl;
+        } else {
+            cout << "Bill Status: Unpaid" << endl;
+        }
+    }
+};
+
+int main() {
+    string patientName;
+    double totalBillAmount, amountPaid;
+    cout << "Enter Patient Name: ";
+    getline(cin, patientName);
+    cout << "Enter Total Bill Amount: ₹";
+    cin >> totalBillAmount;
+    cout << "Enter Amount Paid: ₹";
+    cin >> amountPaid;
+    PatientBill patient(patientName, totalBillAmount, amountPaid);
+    patient.displayBillStatus();
+    return 0;
+}
