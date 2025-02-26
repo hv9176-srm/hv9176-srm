@@ -1,0 +1,41 @@
+#include <stdio.h>
+#define ROWS 3    
+#define COLS 4    
+int main() {
+    float tempData[ROWS][COLS] = {
+        {23.5, 22.3, 25.1, 20.5},
+        {19.0, 21.0, 18.5, 23.0},
+        {15.2, 17.8, 14.0, 18.3}
+    };
+    float hottestTemp = -1000.0, coldestTemp = 1000.0, sumTemp = 0.0;
+    int hottestLocationRow = 0, hottestLocationCol = 0;
+    int coldestLocationRow = 0, coldestLocationCol = 0;
+    int totalElements = ROWS * COLS;
+    
+    float *ptr = &tempData[0][0];
+
+    for (int i = 0; i < ROWS; i++) {
+        for (int j = 0; j < COLS; j++) {
+            float currentTemp = *(ptr + i * COLS + j);
+            sumTemp += currentTemp;
+
+            if (currentTemp > hottestTemp) {
+                hottestTemp = currentTemp;
+                hottestLocationRow = i;
+                hottestLocationCol = j;
+            }
+            if (currentTemp < coldestTemp) {
+                coldestTemp = currentTemp;
+                coldestLocationRow = i;
+                coldestLocationCol = j;
+            }
+        }
+    }
+
+    float avgTemp = sumTemp / totalElements;
+
+    printf("Hottest Temperature: %.2f at Location (%d, %d)\n", hottestTemp, hottestLocationRow, hottestLocationCol);
+    printf("Coldest Temperature: %.2f at Location (%d, %d)\n", coldestTemp, coldestLocationRow, coldestLocationCol);
+    printf("Average Temperature: %.2f\n", avgTemp);
+    return 0;
+}
