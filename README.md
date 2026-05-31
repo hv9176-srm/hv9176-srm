@@ -6,7 +6,7 @@
 
 🚀 Building practical projects while learning Data Structures & Algorithms, Backend Development, and Machine Learning
 
----
+
 
 ## 🔥 Featured Projects
 
@@ -20,7 +20,6 @@
 - Implemented expense categorization and spending analysis
 - Focused on clean code, data management, and usability
 
----
 
 ## 🛠 Skills
 
@@ -48,7 +47,6 @@
 - Postman
 - MySQL Workbench
 
----
 
 ## 📚 Currently Learning
 - Data Structures & Algorithms
